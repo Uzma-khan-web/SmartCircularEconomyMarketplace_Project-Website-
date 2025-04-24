@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, rgba(63, 90, 116, 0.8), rgba(26, 188, 156, 0.8)),
+                        url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-container {
+            width: 350px;
+        }
+
+        .container {
+            width: 100%;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1abc9c;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 8px rgba(26, 188, 156, 0.8);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #ecf0f1;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 12px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        input:focus {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            transform: scale(1.03);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #319273, #518149);
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            width: 50%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+        }
+
+        .login-link {
+            margin-top: 15px;
+            color: #ecf0f1;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #1abc9c;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="container">
+            <h2>Create an Account</h2>
+            <form action="{{ url_for('register') }}" method="POST" onsubmit="return validateForm()">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
+
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required>
+
+                <button type="submit">Register</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
