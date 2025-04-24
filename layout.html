@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Circular Marketplace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <style>
+        /* Ensure the whole page covers full screen without scrolling */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #2471A3;
+            padding: 15px;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #D4E6F1;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: color 0.3s ease, background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #A9CCE3;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main content takes up all remaining space */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #2471A3;
+            padding: 10px;
+            text-align: center;
+            color: #ffffff;
+            border-radius: 15px 15px 0 0;
+            flex-shrink: 0; /* Keeps footer at the bottom */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Circular Marketplace</h1>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/analyze">Analyze Product</a></li>
+                <li><a href="/pricing">Dynamic Pricing</a></li>
+                <li><a href="/recommendations">Recommendations</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Smart Circular Marketplace</p>
+    </footer>
+</body>
+</html>
